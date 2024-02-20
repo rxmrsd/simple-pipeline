@@ -1,0 +1,28 @@
+name: bq-component
+description: sample component
+inputs:
+  - name: project
+    type: String
+    description: project_id
+  - name: table_id
+    type: String
+    description: table_id
+outputs:
+  - name: output_dir
+    type: Artifact
+    description: output directory
+metadata:
+  annotations:
+    author: rxmrsd
+implementation:
+  container:
+    image: asia-northeast1-docker.pkg.dev/{PROJECT_ID}/simple-pipeline/bq-component:{TAG}
+    args:
+      [
+        --project,
+        { inputValue: project },
+        --table_id,
+        { inputValue: table_id },
+        --output_dir,
+        { outputPath: output_dir },
+      ]

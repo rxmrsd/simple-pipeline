@@ -1,0 +1,17 @@
+name: display-component
+description: sample component
+inputs:
+  - name: result_dir
+    type: Artifact
+    description: result data
+metadata:
+  annotations:
+    author: rxmrsd
+implementation:
+  container:
+    image: asia-northeast1-docker.pkg.dev/{PROJECT_ID}/simple-pipeline/display-component:{TAG}
+    args:
+      [
+        --result_dir,
+        { inputPath: result_dir },
+      ]

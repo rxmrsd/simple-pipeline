@@ -1,0 +1,29 @@
+# @format
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args: ["deployment/deployment_component.sh"]
+    env:
+      - GCP_PROJECT_ID=${PROJECT_ID}
+      - DOCKER_BUILDKIT=1
+      - TAG=${TAG_NAME}
+    id: Build & push components docker images
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "builds",
+        "submit",
+        "--config=deployment/deployment_pipeline.yaml",
+        "--region=${LOCATION}",
+        "--substitutions=_TAG=${TAG_NAME},\
+        _COMPILE_FILE=${_COMPILE_FILE},\
+        _PIPELINE_ROOT=${_PIPELINE_ROOT},\
+        _PIPELINE_NAME=${_PIPELINE_NAME},\
+        _REGISTRY_PATH=${_REGISTRY_PATH}"
+      ]
+    dir: .
+    id: Compile pipeline
+options:
+  logging: CLOUD_LOGGING_ONLY

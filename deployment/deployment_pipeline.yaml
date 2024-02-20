@@ -1,0 +1,37 @@
+# @format
+
+steps:
+  # 1. Install poetry and export requirements_dev.txt
+  - name: python:3.11
+    script: |
+      curl -sSL https://install.python-poetry.org | python3 -
+      export PATH="/builder/home/.local/bin:${PATH}"
+      unlink pyproject.toml && cp -f ../pyproject.toml ./
+      poetry export -f requirements.txt --without-hashes --with $(cat dependencies.txt) --output requirements.txt
+    dir: pipeline
+    id: Install poetry and export requirements_dev.txt
+
+  # 2. Install Python Dependencies
+  - name: python:3.11
+    script: |
+      python -m pip install -r requirements.txt --user
+    dir: pipeline
+    id: Install Python Dependencies
+
+  # 3. compile
+  - name: python:3.11
+    entrypoint: python
+    args:
+      [
+        "${_COMPILE_FILE}",
+        "--project=${PROJECT_ID}",
+        "--location=${LOCATION}",
+        "--pipeline_root=${_PIPELINE_ROOT}",
+        "--pipeline_name=${_PIPELINE_NAME}",
+        "--tag=${_TAG}",
+        "--registry_path=${_REGISTRY_PATH}",
+      ]
+    env:
+      - "PYTHONPATH=$$PYTHONPATH:src/:."
+    dir: pipeline
+    id: Compile
