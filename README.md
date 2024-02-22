@@ -185,3 +185,8 @@ job.submit(
 # まとめ
 
 本記事では，簡単なパイプラインをVertex AI Pipelinesに構築しました．何番煎じかわかりませんが，普段行なっている業務のアウトプットとして記載しました．
+
+# 参考
+- [kfp (^2.0.0)](https://www.kubeflow.org/docs/components/pipelines/v2/)
+- [google-cloud-aiplatform](https://cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.PipelineJob)
+- [Vertex Pipelinesによる機械学習パイプラインの実行](https://zenn.dev/dhirooka/articles/71a5fc473baefb)
