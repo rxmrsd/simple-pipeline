@@ -13,7 +13,7 @@ do
     docker build -t ${COMPONENT}:latest -f ${COMPONENT_DIR}/Dockerfile .
 
     # component image name
-    IMAGE_NAME=asia-northeast1-docker.pkg.dev/${GCP_PROJECT_ID}/soloban/${COMPONENT}
+    IMAGE_NAME=asia-northeast1-docker.pkg.dev/${GCP_PROJECT_ID}/simple-pipeline/${COMPONENT}
 
     # push image to Artifact Registory
     docker tag ${COMPONENT}:latest ${IMAGE_NAME}:${TAG}

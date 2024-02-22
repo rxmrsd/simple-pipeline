@@ -19,7 +19,6 @@ steps:
         "--region=${LOCATION}",
         "--substitutions=_TAG=${TAG_NAME},\
         _COMPILE_FILE=${_COMPILE_FILE},\
-        _PIPELINE_ROOT=${_PIPELINE_ROOT},\
         _PIPELINE_NAME=${_PIPELINE_NAME},\
         _REGISTRY_PATH=${_REGISTRY_PATH}"
       ]

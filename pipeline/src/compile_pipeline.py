@@ -78,12 +78,6 @@ def upload_to_registry(
     help="region",
 )
 @click.option(
-    "--pipeline_root",
-    type=str,
-    required=True,
-    help="pipeline root",
-)
-@click.option(
     "--pipeline_name",
     type=str,
     required=True,

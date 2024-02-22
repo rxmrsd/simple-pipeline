@@ -25,7 +25,7 @@ class SimplePipeline:
         """
         op = load_component_from_yaml(
             project=self.project,
-            yaml_filepath="./components/bq-component/component.yaml",
+            yaml_filepath="../components/bq-component/component.yaml",
         )
         return op(project=project, table_id=table_id)
 
@@ -40,7 +40,7 @@ class SimplePipeline:
         """
         op = load_component_from_yaml(
             project=self.project,
-            yaml_filepath="./components/display-component/component.yaml",
+            yaml_filepath="../components/display-component/component.yaml",
         )
         return op(result_dir=result_dir)
 

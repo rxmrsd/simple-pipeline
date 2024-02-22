@@ -26,7 +26,6 @@ steps:
         "${_COMPILE_FILE}",
         "--project=${PROJECT_ID}",
         "--location=${LOCATION}",
-        "--pipeline_root=${_PIPELINE_ROOT}",
         "--pipeline_name=${_PIPELINE_NAME}",
         "--tag=${_TAG}",
         "--registry_path=${_REGISTRY_PATH}",
