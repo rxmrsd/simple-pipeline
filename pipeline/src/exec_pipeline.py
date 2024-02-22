@@ -26,7 +26,6 @@ def exec_pipeline(
     aiplatform.init(
         project=project,
         location=location,
-        service_account=service_account,
     )
 
     job = aiplatform.PipelineJob(
