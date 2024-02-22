@@ -1,6 +1,3 @@
-# はじめに
-私は業務でVertex AI Pipelinesを使ったパイプラインを作っています．日ごろ作っているパイプラインを，作って実行するまでのプロセスについて記載します．
-
 # お題
 今回は簡単なパイプラインを作ります．
 行なう処理は，Big Queryにあるデータセットからデータを抽出し保存．保存したものを読み取って，printするものです．
@@ -13,7 +10,7 @@ Vertex AI Pipelinesにてパイプラインを実行するにあたり，以下�
 - Artifact Registryに，ビルドしたコンポーネントのDockerイメージとパイプライン定義ファイルを保存
 - ローカルPCから，パイプラインの実行を指示
 
-![architect.png](docs/imgs/architect.png)
+ <img src="docs/imgs/architect.png" alt="architect"/>
 
 
 
@@ -182,9 +179,9 @@ job.submit(
 以下のようにパイプラインが動き，最終的にデータフレームをプリントしてくれています．
 
 
-![pipeline_result.png](docs/imgs/pipeline_result.png)
+ <img src="docs/imgs/pipeline_result.png" alt="pipeline_result"/>
 
 
 # まとめ
 
-本記事では，簡単なパイプラインをVertex AI Pipelinesに構築しました．何番煎じかわかりませんが，普段行なっている業務のアウトプットとして記載しました．業務では，パイプラインの実行は定期的に行なうことができるように，Cloud FunctionsとCloud Schedulerを使っていたり，githubでのタグ付けをトリガにしてビルドするようにしたりと，よりCI/CDを充実させています．今後その旨を記載できればと思います．
+本記事では，簡単なパイプラインをVertex AI Pipelinesに構築しました．何番煎じかわかりませんが，普段行なっている業務のアウトプットとして記載しました．
